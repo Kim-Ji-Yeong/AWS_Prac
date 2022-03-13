@@ -4,7 +4,7 @@ buildscript {
     }
     repositories {
         mavenCentral()
-        jcenter()
+//        jcenter()
     }
 
     dependencies {
@@ -12,7 +12,7 @@ buildscript {
         }
 }
 
-    apply plugin: 'java';
+    apply plugin: 'java'
     apply plugin:'eclipse'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
@@ -28,7 +28,21 @@ buildscript {
     dependencies {
         compile('org.springframework.boot:spring-boot-starter-web')
         testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile('com.h2database:h2')
     }
+
+//롬볼 설치시 에러 뜨지 않게 추가해야함
+dependencies {
+    compile('org.projectlombok:lombok')
+    testCompile "org.projectlombok:lombok"
+    annotationProcessor('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+}
+
+
+
+
 
 
 //plugins {
